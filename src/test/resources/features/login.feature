@@ -15,26 +15,15 @@
       E clico em Login
       Então vejo mensagem de login com sucesso
 
-    @email-invalido
-    Cenário: Campo email inválido
-      Quando preencho login "emailinvalido" e senha "123456"
+    @login-invalido
+    Esquema do Cenario: Validar : <name>
+      Quando preencho login "<user>" e senha "<password>"
       E clico em Login
-      Então vejo mensagem "E-mail inválido." de campo não preenchido
+      Então vejo mensagem "<message>" de campo não preenchido
 
-    @email-vazio
-    Cenário: Campo email inválido
-      Quando preencho login "" e senha "123456"
-      E clico em Login
-      Então vejo mensagem "E-mail inválido." de campo não preenchido
-
-    @senha-invalida
-    Cenário: Campo senha inválida
-      Quando preencho login "alexandre@teste.com" e senha "000"
-      E clico em Login
-      Então vejo mensagem "Senha inválida." de campo não preenchido
-
-    @senha-vazia
-    Cenário: Campo senha inválida
-      Quando preencho login "alexandre@teste.com" e senha ""
-      E clico em Login
-      Então vejo mensagem "Senha inválida." de campo não preenchido
+      Exemplos:
+      | user                    | password | message                     | name                      |
+      | emailinvalido           | 123456   | E-mail inválido.            | E-mail inválido           |
+      |                         | 123456   | E-mail inválido.            | E-mail vazio              |
+      | alexandre@teste.com     | 000      | Senha inválida.             | Senha inválida            |
+      | alexandre@teste.com     |          | Senha inválida.             | Senha vazia               |
