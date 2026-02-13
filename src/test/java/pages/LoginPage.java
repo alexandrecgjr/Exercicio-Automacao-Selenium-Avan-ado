@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import runner.RunCucumber;
 
+import static support.Commands.clickElement;
+
 public class LoginPage extends RunCucumber {
 
     // elementos
@@ -20,7 +22,7 @@ public class LoginPage extends RunCucumber {
     }
 
     public void acessarTelaLogin() {
-        getDriver().findElement(botaoAcessarLogin).click();
+        clickElement(botaoAcessarLogin);
     }
 
     public void preencheEmail(String email){
@@ -32,7 +34,7 @@ public class LoginPage extends RunCucumber {
     }
 
     public void clicarLogin(){
-        getDriver().findElement(botaoFazerLogin).click();
+        clickElement(botaoFazerLogin);
     }
 
     public void verificaLoginSucesso(){
@@ -46,7 +48,7 @@ public class LoginPage extends RunCucumber {
     }
 
     public void acessarTelaCadastro(){
-        getDriver().findElement(botaoAcessarCadastro).click();
+        clickElement(botaoAcessarCadastro);
     }
 
 }
