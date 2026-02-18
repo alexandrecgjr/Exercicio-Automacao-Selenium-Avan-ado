@@ -1,10 +1,9 @@
 package pages;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import runner.RunCucumber;
 
-import static support.Commands.clickElement;
+import static support.Commands.*;
 
 public class LoginPage extends RunCucumber {
 
@@ -26,11 +25,11 @@ public class LoginPage extends RunCucumber {
     }
 
     public void preencheEmail(String email){
-         getDriver().findElement(campoEmail).sendKeys(email);
+        fillField(campoEmail, email);
     }
 
     public void preencherSenha(String senha){
-        getDriver().findElement(campoSenha).sendKeys(senha);
+        fillField(campoSenha, senha);
     }
 
     public void clicarLogin(){
@@ -38,13 +37,11 @@ public class LoginPage extends RunCucumber {
     }
 
     public void verificaLoginSucesso(){
-        String textoLoginSucesso = getDriver().findElement(By.id("swal2-title")).getText();
-        Assert.assertEquals("Os textos não são iguais!", "Login realizado", textoLoginSucesso);
+        checkMessage(By.id("swal2-title"), "Login realizado");
     }
 
     public void verificaCampoVazio(String message){
-        String textError = getDriver().findElement(By.className("invalid_input")).getText();
-        Assert.assertEquals(message, textError);
+        checkMessage(By.className("invalid_input"), message);
     }
 
     public void acessarTelaCadastro(){
